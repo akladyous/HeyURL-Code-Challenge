@@ -19,7 +19,7 @@ class Url < ApplicationRecord
         .joins(:clicks)
         .group("clicks.browser")
         .count(:id).to_a
-        # joins(:clicks).group("clicks.browser").count(:id).to_a 
+        # joins(:clicks).group("clicks.browser").count(:id).to_a
     }
 
     scope :platforms_by_clicks, -> (url_id) {
@@ -29,7 +29,7 @@ class Url < ApplicationRecord
         .count(:id).to_a
     }
 
-    scope :daily_clicks, -> {  
+    scope :daily_clicks, -> {
         order(created_at: :asc)
         .limit(10)
         .group(:created_at)
